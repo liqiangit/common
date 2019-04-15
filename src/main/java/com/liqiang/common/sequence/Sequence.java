@@ -1,5 +1,5 @@
 package com.liqiang.common.sequence;
 
 public interface Sequence {
-public Long nextval();
+public Long nextval(String sequenceName);
 }
