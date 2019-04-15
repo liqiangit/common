@@ -20,10 +20,11 @@ public class MysqlSequence implements Sequence {
 
 	@Override
 	public Long nextval() {
-//		jdbcTemplate.update("insert into mysql_sequence(content) values('content')");
+		//jdbcTemplate.update("insert into mysql_sequence(content) values('content')");
 		String sql = "insert into mysql_sequence(content) values('content')";
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 				return ps;
