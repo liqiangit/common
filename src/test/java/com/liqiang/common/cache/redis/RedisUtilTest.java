@@ -2,7 +2,9 @@ package com.liqiang.common.cache.redis;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -180,7 +182,16 @@ public class RedisUtilTest {
 
 	@Test
 	public void testLSetStringObject() {
-		fail("Not yet implemented");
+		List<String> value=new ArrayList<>();
+		value.add("1");
+		value.add("2");
+		value.add("3");
+		redisUtil.lSet("setlist", value);
+		value.add("4");
+		redisUtil.lSet("setlist", value);
+		long size=redisUtil.lGetListSize("setlist");
+		System.out.println(size);
+		redisUtil.lGetIndex("setlist", 1);
 	}
 
 	@Test
