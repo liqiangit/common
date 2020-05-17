@@ -59,9 +59,10 @@ public class GroupUtils {
 						map.put(operation.getOperationfield(), max(v, v2));
 					}
 				} else {
-					map.put(operation.getOperationfield(), v2);
 					if (oper.equals("count")) {
 						map.put(operation.getOperationfield(), new Integer(1));
+					}else{
+						map.put(operation.getOperationfield(), v2);
 					}
 				}
 			}
