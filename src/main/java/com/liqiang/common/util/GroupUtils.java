@@ -9,11 +9,11 @@ import java.util.Map;
 import org.apache.commons.beanutils.PropertyUtils;
 
 public class GroupUtils {
-	public static <T> List<Map<String, Object>> groupby(List<T> persons, Key<T> key, List<Operation> operations,boolean listed)
+	public static <T> List<Map<String, Object>> groupby(List<T> lists, Key<T> key, List<Operation> operations,boolean listed)
 			throws Exception {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		Map<String, Map<String, Object>> maps = new LinkedHashMap<String, Map<String, Object>>();
-		for (T t : persons) {
+		for (T t : lists) {
 			Map<String, Object> map = null;
 			List<T> ls=null;
 			String keyValue = key.getKey(t);
